@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standard_margin">16dp</dimen>
+    <dimen name="logo_size">150dp</dimen>
+    <dimen name="under_logo_text_margin">20dp</dimen>
+    <dimen name="under_logo_text_size">20sp</dimen>
+    <dimen name="sign_in_height">55dp</dimen>
+    <dimen name="sign_in_bottom_margin">60dp</dimen>
+    <dimen name="sign_in_side_margin">30dp</dimen>
+    <dimen name="have_account_height">50dp</dimen>
+</resources>

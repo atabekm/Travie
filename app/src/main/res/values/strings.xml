@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Travie</string>
+    <string name="logo">Logo</string>
+    <string name="glad_to_see_you_back">Glad to see you back</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="dont_have_an_account">Don\'t have an account? Sign up</string>
 </resources>
