@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.ui.recent.RecentTransactionsActivity"
+            android:theme="@style/AppTheme.NoActionBar"
             android:label="@string/recent_transactions"/>
     </application>
 

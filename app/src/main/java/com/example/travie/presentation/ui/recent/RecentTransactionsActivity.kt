@@ -23,6 +23,11 @@ class RecentTransactionsActivity: AppCompatActivity(), RecentTransactionsView {
         setContentView(R.layout.activity_recent)
         (application as TravieApp).component.inject(this)
 
+        setSupportActionBar(recentTransactionsToolbar)
+        supportActionBar?.setTitle(R.string.recent_transactions)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
         presenter.init(this)
         adapter = RecentTransactionsAdapter(this)
         recentTransactionsList.adapter = adapter
@@ -31,6 +36,11 @@ class RecentTransactionsActivity: AppCompatActivity(), RecentTransactionsView {
     override fun onResume() {
         super.onResume()
         presenter.getRecentTransactions()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 
     override fun updateTransactions(transactions: List<TransactionWrapper>) {
