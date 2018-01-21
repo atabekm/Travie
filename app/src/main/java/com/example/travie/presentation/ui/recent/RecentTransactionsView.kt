@@ -9,5 +9,6 @@ import com.example.travie.domain.model.Transaction
 interface RecentTransactionsView {
 
     fun updateTransactions(transactions: List<Transaction>)
+    fun showProgressBar(visible: Boolean)
 
 }

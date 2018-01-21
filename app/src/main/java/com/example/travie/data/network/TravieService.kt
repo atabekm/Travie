@@ -10,7 +10,7 @@ import retrofit2.http.GET
 
 interface TravieService {
 
-    @GET("/bins/1dhzg9")
+    @GET("/bins/71zqh")
     fun getTransactions(): Single<List<Transaction>>
 
 }

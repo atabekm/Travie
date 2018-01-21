@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:padding="@dimen/standard_margin">
+
+    <TextView
+        android:id="@+id/transactionDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/transactionMonth"
+        android:gravity="center"
+        android:paddingRight="@dimen/standard_margin"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="10"/>
+
+    <TextView
+        android:id="@+id/transactionMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/transactionDay"
+        android:paddingRight="@dimen/standard_margin"
+        android:textAllCaps="true"
+        tools:text="Jan"/>
+
+    <TextView
+        android:id="@+id/transactionAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:paddingStart="@dimen/standard_margin"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="$400"/>
+
+    <TextView
+        android:id="@+id/transactionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/transactionDay"
+        android:layout_toStartOf="@id/transactionAmount"
+        android:ellipsize="end"
+        android:lines="1"
+        android:paddingTop="2dp"
+        android:textColor="@color/primaryTextColor"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Online Tfr Westpac Choice Online Tfr Westpac Choice"/>
+
+    <TextView
+        android:id="@+id/transactionCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/transactionTitle"
+        android:layout_toEndOf="@id/transactionMonth"
+        android:layout_toStartOf="@id/transactionAmount"
+        tools:text="Other Transferring Money"/>
+
+</RelativeLayout>

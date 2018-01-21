@@ -19,7 +19,7 @@
         android:layout_marginTop="@dimen/under_logo_text_margin"
         android:layout_weight="1"
         android:text="@string/glad_to_see_you_back"
-        android:textColor="@android:color/black"
+        android:textColor="@color/primaryTextColor"
         android:textSize="@dimen/under_logo_text_size"
         android:textStyle="bold"/>
 

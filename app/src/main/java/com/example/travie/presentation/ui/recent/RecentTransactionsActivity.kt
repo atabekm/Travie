@@ -2,10 +2,12 @@ package com.example.travie.presentation.ui.recent
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import com.example.travie.R
 import com.example.travie.TravieApp
 import com.example.travie.domain.model.Transaction
+import kotlinx.android.synthetic.main.activity_recent.*
 import javax.inject.Inject
 
 /**
@@ -13,8 +15,9 @@ import javax.inject.Inject
  */
 
 class RecentTransactionsActivity: AppCompatActivity(), RecentTransactionsView {
-
     @Inject lateinit var presenter: RecentTransactionsPresenter
+
+    private lateinit var adapter: RecentTransactionsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +25,8 @@ class RecentTransactionsActivity: AppCompatActivity(), RecentTransactionsView {
         (application as TravieApp).component.inject(this)
 
         presenter.init(this)
+        adapter = RecentTransactionsAdapter(this)
+        recentTransactionsList.adapter = adapter
     }
 
     override fun onResume() {
@@ -30,6 +35,10 @@ class RecentTransactionsActivity: AppCompatActivity(), RecentTransactionsView {
     }
 
     override fun updateTransactions(transactions: List<Transaction>) {
-        Log.d("mytest", "size: " + transactions.size)
+        adapter.updateTransactions(transactions)
+    }
+
+    override fun showProgressBar(visible: Boolean) {
+        recentTransactionsProgressBar.visibility = if (visible) VISIBLE else GONE
     }
 }
