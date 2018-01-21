@@ -27,7 +27,7 @@ class RecentTransactionsPresenter(
     }
 
     private fun updateTransactions(transactions: List<Transaction>) {
-        view.updateTransactions(transactions)
+        view.updateTransactions(TransactionConverter.toWrapper(transactions))
         view.showProgressBar(false)
     }
 

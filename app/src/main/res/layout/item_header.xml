@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<TextView android:id="@+id/headerTitle"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:text="Wednesday 10 Jan, 2018"
-    android:textAllCaps="true"
+    android:layout_height="30dp"
+    android:background="@color/headerBackground"
     android:gravity="center_vertical"
-    android:background="@android:color/darker_gray"
+    android:paddingEnd="@dimen/standard_margin"
+    android:paddingStart="@dimen/standard_margin"
+    android:textAllCaps="true"
     android:textColor="@android:color/black"
-    android:paddingLeft="@dimen/standard_margin"/>
+    tools:text="Wednesday 10 Jan, 2018"/>

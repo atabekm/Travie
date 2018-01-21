@@ -6,7 +6,6 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import com.example.travie.R
 import com.example.travie.TravieApp
-import com.example.travie.domain.model.Transaction
 import kotlinx.android.synthetic.main.activity_recent.*
 import javax.inject.Inject
 
@@ -34,7 +33,7 @@ class RecentTransactionsActivity: AppCompatActivity(), RecentTransactionsView {
         presenter.getRecentTransactions()
     }
 
-    override fun updateTransactions(transactions: List<Transaction>) {
+    override fun updateTransactions(transactions: List<TransactionWrapper>) {
         adapter.updateTransactions(transactions)
     }
 
