@@ -9,6 +9,7 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.widget.TextView
 import com.example.travie.R
+import com.example.travie.presentation.ui.recent.RecentTransactionsActivity
 import kotlinx.android.synthetic.main.activity_start.*
 
 class StartActivity : AppCompatActivity() {
@@ -17,10 +18,9 @@ class StartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
 
-        startSignIn.setOnClickListener({
-            val intent = Intent(this, StartActivity::class.java)
-            startActivity(intent)
-        })
+        startSignIn.setOnClickListener {
+            startActivity(Intent(this, RecentTransactionsActivity::class.java))
+        }
 
         val haveAccount = getString(R.string.dont_have_an_account)
         val signUp = getString(R.string.sign_up)
