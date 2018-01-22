@@ -1,6 +1,7 @@
 package com.example.travie.presentation.ui.recent
 
 import com.example.travie.di.scheduler.AppScheduler
+import com.example.travie.domain.interactor.CacheTransactionsUseCase
 import com.example.travie.domain.interactor.GetTransactionsUseCase
 import com.example.travie.domain.model.Transaction
 
@@ -9,7 +10,8 @@ import com.example.travie.domain.model.Transaction
  */
 
 class RecentTransactionsPresenter(
-        private val useCase: GetTransactionsUseCase,
+        private val getTransactionsUseCase: GetTransactionsUseCase,
+        private val cacheTransactionsUseCase: CacheTransactionsUseCase,
         private val scheduler: AppScheduler
 ) {
     private lateinit var view: RecentTransactionsView
@@ -20,13 +22,14 @@ class RecentTransactionsPresenter(
 
     fun getRecentTransactions() {
         view.showProgressBar(true)
-        useCase.execute()
+        getTransactionsUseCase.execute()
                 .subscribeOn(scheduler.io())
                 .observeOn(scheduler.ui())
                 .subscribe(this::updateTransactions)
     }
 
     private fun updateTransactions(transactions: List<Transaction>) {
+        cacheTransactionsUseCase.execute(transactions).subscribe()
         view.updateTransactions(TransactionConverter.toWrapper(transactions))
         view.showProgressBar(false)
     }
