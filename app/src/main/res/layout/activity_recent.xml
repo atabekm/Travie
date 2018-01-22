@@ -14,21 +14,18 @@
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <FrameLayout
+        android:id="@+id/recentTransactionsContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recentTransactionsList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/recentTransactionsBottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemBackground="@color/colorPrimary"
+        app:itemIconTint="@drawable/bottom_nav_selection"
+        app:itemTextColor="@drawable/bottom_nav_selection"
+        app:menu="@menu/bottom_navigation_menu" />
 
-        <ProgressBar
-            android:id="@+id/recentTransactionsProgressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"/>
-
-    </FrameLayout>
 </LinearLayout>

@@ -6,4 +6,8 @@
     <string name="sign_up">Sign up</string>
     <string name="dont_have_an_account">Don\'t have an account? Sign up</string>
     <string name="recent_transactions">Recent Transactions</string>
+    <string name="track">Track</string>
+    <string name="safely_spend">Safely Spend</string>
+    <string name="notifications">Notifications</string>
+    <string name="settings">Settings</string>
 </resources>

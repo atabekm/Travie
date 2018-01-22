@@ -30,6 +30,4 @@ class RecentTransactionsPresenter(
         view.updateTransactions(TransactionConverter.toWrapper(transactions))
         view.showProgressBar(false)
     }
-
-
 }
