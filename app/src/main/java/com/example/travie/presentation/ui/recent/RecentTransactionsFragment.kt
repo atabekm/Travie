@@ -1,5 +1,6 @@
 package com.example.travie.presentation.ui.recent
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.travie.R
 import com.example.travie.TravieApp
+import com.example.travie.domain.model.Transaction
+import com.example.travie.presentation.ui.detail.DetailActivity
 import kotlinx.android.synthetic.main.fragment_recent.*
 import javax.inject.Inject
 
@@ -24,7 +27,13 @@ class RecentTransactionsFragment: Fragment(), RecentTransactionsView {
         (activity.application as TravieApp).component.inject(this)
 
         presenter.init(this)
-        adapter = RecentTransactionsAdapter(activity)
+        adapter = RecentTransactionsAdapter(activity, object : TransactionCallback {
+            override fun onTransactionClicked(transaction: Transaction) {
+                val intent = Intent(activity, DetailActivity::class.java)
+                intent.putExtra("t", transaction)
+                startActivity(intent)
+            }
+        })
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -49,4 +58,8 @@ class RecentTransactionsFragment: Fragment(), RecentTransactionsView {
         recentTransactionsProgressBar.visibility = if (visible) View.VISIBLE else View.GONE
     }
 
+}
+
+interface TransactionCallback {
+    fun onTransactionClicked(transaction: Transaction)
 }

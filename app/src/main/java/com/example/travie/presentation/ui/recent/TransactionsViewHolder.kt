@@ -3,8 +3,6 @@ package com.example.travie.presentation.ui.recent
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
-import android.widget.Toast.LENGTH_SHORT
 import com.example.travie.R
 import com.example.travie.domain.model.Transaction
 import com.example.travie.util.dayText
@@ -25,7 +23,6 @@ class TransactionsViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView
         itemView.findViewById<TextView>(R.id.transactionAmount).text = transaction.amount.getCurrencyText()
         itemView.findViewById<TextView>(R.id.transactionTitle).text = transaction.title
         itemView.findViewById<TextView>(R.id.transactionCategory).text = transaction.categories[0].title
-        itemView.setOnClickListener { Toast.makeText(itemView.context, transaction.title, LENGTH_SHORT).show() }
     }
 
 }

@@ -22,6 +22,8 @@
         <activity android:name=".presentation.ui.recent.RecentTransactionsActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:label="@string/recent_transactions"/>
+        <activity android:name=".presentation.ui.detail.DetailActivity"
+            android:theme="@style/AppTheme.Translucent"/>
     </application>
 
 </manifest>

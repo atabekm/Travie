@@ -13,7 +13,7 @@ import com.example.travie.presentation.ui.recent.TransactionConverter.TYPE_TRANS
  * Created by atabek on 01/20/2018.
  */
 
-class RecentTransactionsAdapter(private val context: Context): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecentTransactionsAdapter(private val context: Context, private val callback: TransactionCallback): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var transactions = listOf<TransactionWrapper>()
     private var inflater: LayoutInflater = LayoutInflater.from(context)
 
@@ -26,9 +26,13 @@ class RecentTransactionsAdapter(private val context: Context): RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+        val tr = transactions[position].transaction
         when (transactions[position].type) {
-            TYPE_HEADER -> (holder as HeaderViewHolder).setItem(transactions[position].transaction.date)
-            TYPE_TRANSACTION -> (holder as TransactionsViewHolder).setItem(transactions[position].transaction)
+            TYPE_HEADER -> (holder as HeaderViewHolder).setItem(tr.date)
+            TYPE_TRANSACTION -> {
+                (holder as TransactionsViewHolder).setItem(tr)
+                holder.itemView.setOnClickListener{ callback.onTransactionClicked(tr) }
+            }
         }
     }
 
