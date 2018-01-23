@@ -29,6 +29,7 @@ ext {
     rx_android_version = '2.0.1'
     dagger_version = '2.11'
     retrofit_version = '2.3.0'
+    mockito_kotlin_version = '1.5.0'
 }
 
 dependencies {
@@ -52,4 +53,5 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
     testImplementation "junit:junit:$junit_version"
+    testImplementation "com.nhaarman:mockito-kotlin:$mockito_kotlin_version"
 }

@@ -2,6 +2,7 @@ package com.example.travie.presentation.ui.recent
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -58,6 +59,11 @@ class RecentTransactionsFragment: Fragment(), RecentTransactionsView {
         recentTransactionsProgressBar.visibility = if (visible) View.VISIBLE else View.GONE
     }
 
+    override fun showErrorMessage(message: String) {
+        Snackbar.make(recentTransactionsList, message, Snackbar.LENGTH_INDEFINITE)
+                .setAction(getString(R.string.retry), { presenter.getRecentTransactions() })
+                .show()
+    }
 }
 
 interface TransactionCallback {

@@ -8,5 +8,6 @@ interface RecentTransactionsView {
 
     fun updateTransactions(transactions: List<TransactionWrapper>)
     fun showProgressBar(visible: Boolean)
+    fun showErrorMessage(message: String)
 
 }
