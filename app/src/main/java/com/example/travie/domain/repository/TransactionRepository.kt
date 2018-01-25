@@ -1,7 +1,6 @@
 package com.example.travie.domain.repository
 
 import com.example.travie.domain.model.Transaction
-import io.reactivex.Completable
 import io.reactivex.Single
 
 /**
@@ -10,5 +9,4 @@ import io.reactivex.Single
 
 interface TransactionRepository {
     fun getTransactions(): Single<List<Transaction>>
-    fun cacheTransactions(transactions: List<Transaction>): Completable
 }

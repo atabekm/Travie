@@ -2,7 +2,6 @@ package com.example.travie.di.module
 
 import com.example.travie.TravieApp
 import com.example.travie.di.scheduler.AppScheduler
-import com.example.travie.domain.interactor.CacheTransactionsUseCase
 import com.example.travie.domain.interactor.GetTransactionsUseCase
 import com.example.travie.presentation.ui.recent.RecentTransactionsPresenter
 import dagger.Module
@@ -31,7 +30,6 @@ class AppModule(private val app: TravieApp) {
     @Provides
     @Singleton
     fun providesRecentTransactionsPresenter(getTransactionsUseCase: GetTransactionsUseCase,
-                                            cacheTransactionsUseCase: CacheTransactionsUseCase,
                                             scheduler: AppScheduler)
-            = RecentTransactionsPresenter(getTransactionsUseCase, cacheTransactionsUseCase, scheduler)
+            = RecentTransactionsPresenter(getTransactionsUseCase, scheduler)
 }

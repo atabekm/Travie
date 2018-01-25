@@ -4,7 +4,6 @@ import com.example.travie.data.cache.CacheService
 import com.example.travie.data.network.TravieService
 import com.example.travie.domain.model.Transaction
 import com.example.travie.domain.repository.TransactionRepository
-import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
 import java.util.*
@@ -21,11 +20,8 @@ class TransactionRepositoryImpl(private val networkService: TravieService,
             Observable.fromArray(cacheService.getTransactions()).singleOrError()
         } else {
             networkService.getTransactions()
+                    .doOnSuccess { cacheService.set(Date().time, it) }
         }
-    }
-
-    override fun cacheTransactions(transactions: List<Transaction>): Completable {
-        return Completable.fromCallable({ cacheService.set(Date().time, transactions) })
     }
 
 }
